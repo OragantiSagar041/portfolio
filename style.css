@@ -1,0 +1,323 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #007acc;
+  color: white;
+  padding: 20px 0;
+  animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+header h1 {
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+  margin-top: 10px;
+  animation: fadeIn 1.5s ease-in;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  animation: bounceIn 1.2s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.section {
+  padding: 50px 20px;
+  border-bottom: 1px solid #ddd;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.section:hover {
+  transform: scale(1.01);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  animation: popIn 0.5s ease-in-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bounceIn 1.2s ease-in-out;
+}
+
+form button:hover {
+  background-color: #005fa3;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  animation: slideUp 1s ease-in-out;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Dark mode specific */
+.dark-mode header,
+.dark-mode footer {
+  background-color: #1e1e1e;
+}
+
+.dark-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: bounceIn 1.2s ease-in-out;
+}
+
+.dark-toggle:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .dark-toggle {
+  background-color: #1e90ff;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  animation: fadeIn 2s ease-in;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-photo:hover {
+  transform: scale(1.1);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bounceIn 1.2s ease-in-out;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.social-links a:hover {
+  color: #007acc;
+  transform: scale(1.2) translateY(-2px);
+  text-decoration: underline;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .social-links a {
+  color: #ddd;
+}
+
+.dark-mode .social-links a:hover {
+  color: #1e90ff;
+}
+
+.resume-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007acc;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bounceIn 1.2s ease-in-out;
+}
+
+.resume-btn:hover {
+  background-color: #005fa3;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dark-mode .resume-btn {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.dark-mode .resume-btn:hover {
+  background-color: #007acc;
+}

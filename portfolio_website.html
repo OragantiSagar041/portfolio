@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>My Portfolio</h1>
+      <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="section fade-in">
+      <div class="home-content">
+        <img src="images\sagar_prof.jpeg" alt= "Profile Photo"class="profile-photo" />
+        <div>
+          <h2>Hello! 👋</h2>
+          <p>I'm Sagar 👋
+
+A passionate Data Science graduate, aspiring Software Engineer, and tech enthusiast with experience in Python, Web Development, Machine Learning, and real-time projects like Chatbots and Emotion Detection.
+Let’s build something amazing together!</p>
+          <div class="social-links">
+            <a href="https://github.com/OragantiSagar041" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/oraganti-sagar-3a8b37263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+            <a href="mailto:oragantisagar719@gmail.com">Email</a>
+          </div>
+          <a href="resume\sagar_oraganti_resume_.pdf" download class="resume-btn">📄 Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section fade-in">
+      <h2>About Me</h2>
+      <p>Hi, I'm Sagar, a Data Science postgraduate student at OU,Hyderabad with a passion for AI, IoT, and software development. I have hands-on experience in Python, machine learning, web development, and computer vision. My projects include a Chatbot in Python, real-time emotion recognition using computer vision . I'm a quick learner aiming to become a skilled software engineer who builds impactful tech solution</p>
+    </section>
+
+    <section id="projects" class="section fade-in">
+      <h2>Projects</h2>
+      <ul>
+        <li>✅ Chatbot in Python</li>
+        <li>✅ Real-Time Emotion Recognition using computer vision</li>
+        <li>✅ Weather App using OpenWeather API</li>
+      </ul>
+    </section>
+
+    <section id="achievements" class="section fade-in">
+      <h2>Achievements</h2>
+      <ul>
+        <li>🏆 Deloitte : Data Analytics Job Simulation – <a href="certificates\deloitte.pdf" target="_blank">View Certificate</a></li>
+        <li>🎖️ AWS : Solutions Architecture Job Simulation – <a href="certificates\aws.pdf" target="_blank">View Certificate</a></li>
+        <li>📜 TATA : Data Visualisation : Empowering Business with Effective Insights – <a href="certificates\tata.pdf" target="_blank">View Certificate</a></li>
+        <li>🏆 Electronic Arts : Software Engineering Job Simulation – <a href="certificates\electronic arts.pdf" target="_blank">View Certificate</a></li>
+        <li>🎖️ NI-MSME : AI and ML Jr.Telcom Data Analyst – <a href="certificates\ni-msme (sagar).pdf" target="_blank">View Certificate</a></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section fade-in">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Mail" required />
+        <input type="number" placeholder="Your mobile Number" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <button id="darkModeToggle" class="dark-toggle">🌙 Dark Mode</button>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('responsive');
+    }
+
+    const toggleBtn = document.getElementById("darkModeToggle");
+    toggleBtn.onclick = () => {
+      document.body.classList.toggle("dark-mode");
+      toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️ Light Mode" : "🌙 Dark Mode";
+    };
+
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("appear");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+</body>
+</html>
